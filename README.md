@@ -40,13 +40,31 @@ The `PARALAX_EFFECT` function takes three arguments:
 
 ## Example
 ```html
-<div id="myElement" style="position: absolute; width: 100px; height: 100px; background-color: red;"></div>
-```
-
-```javascript
-PARALAX_EFFECT(document.getElementById("myElement"), 0.08, 0.02);
+<HTML>
+ <HEAD>
+  <STYLE>
+#test_element
+{
+    POSITION: ABSOLUTE;
+    WIDTH: 100PX;
+    HEIGHT: 100PX;
+    BACKGROUND-COLOR: RED;
+    TOP: 50%;
+    LEFT: 50%;
+    TRANSFORM: TRANSLATE(-50%, -50%);
+}
+  </STYLE>
+ </HEAD>
+ <BODY>
+  <DIV ID="test_element"></DIV>
+  <SCRIPT TYPE="TEXT/JAVASCRIPT" SRC="PARALAX_EFFECT.js"></SCRIPT>
+  <SCRIPT TYPE="TEXT/JAVASCRIPT">
+PARALAX_EFFECT(document.getElementById("test_element"), 0.08, 0.02);
 // or
-PARALAX_EFFECT(document.getElementById("myElement"));
+PARALAX_EFFECT(document.getElementById("test_element"));
+  </SCRIPT>
+ </BODY>
+</HTML>
 ```
 
 ## License
