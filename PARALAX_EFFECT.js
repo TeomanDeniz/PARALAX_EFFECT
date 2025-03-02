@@ -14,6 +14,8 @@
 
 var WINDOW_CENTER_X = window.innerWidth / 2;
 var WINDOW_CENTER_Y = window.innerHeight / 2;
+var MOUSE_X = WINDOW_CENTER_X;
+var MOUSE_Y = WINDOW_CENTER_Y;
 
 window.addEventListener('resize',
 	function ()
@@ -23,17 +25,31 @@ window.addEventListener('resize',
 	}
 );
 
+document.addEventListener('mousemove',
+	function (EVENT)
+	{
+		MOUSE_X = EVENT.clientX;
+		MOUSE_Y = EVENT.clientY;
+	}
+);
+
 function
 	PARALAX_EFFECT(ELEMENT, FRICTION, SENSITIVITY)
 {
+	function /* FLOAT */
+		LERP(START, END, FRICTION)
+	{
+		return (START + (END - START) * FRICTION);
+	}
+
 	function
 		UPDATE_MAIN_PANEL_POSITION(THIS)
 	{
-		const TARGET_X = (THIS.MOUSE_X - WINDOW_CENTER_X) * THIS.SENSITIVITY;
-		const TARGET_Y = (THIS.MOUSE_Y - WINDOW_CENTER_Y) * THIS.SENSITIVITY;
+		const TARGET_X = (MOUSE_X - WINDOW_CENTER_X) * THIS.SENSITIVITY;
+		const TARGET_Y = (MOUSE_Y - WINDOW_CENTER_Y) * THIS.SENSITIVITY;
 
 		THIS.MENU_POSITION_X =
-			LERP(THIS.THIS.MENU_POSITION_X, TARGET_X, THIS.FRICTION);
+			LERP(THIS.MENU_POSITION_X, TARGET_X, THIS.FRICTION);
 		THIS.MENU_POSITION_Y =
 			LERP(THIS.MENU_POSITION_Y, TARGET_Y, THIS.FRICTION);
 		THIS.MOVING_OBJECT.style.transform =
@@ -45,8 +61,6 @@ function
 	const THIS = {};
 
 	THIS.MOVING_OBJECT = ELEMENT;
-	THIS.MOUSE_X = WINDOW_CENTER_X;
-	THIS.MOUSE_Y = WINDOW_CENTER_Y;
 	THIS.MENU_POSITION_X = 0;
 	THIS.MENU_POSITION_Y = 0;
 	THIS.FRICTION = FRICTION || 0.05;
