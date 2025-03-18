@@ -1,5 +1,9 @@
 # Paralax Effect
 
+<p align="center">
+ <img src="https://raw.githubusercontent.com/TeomanDeniz/TeomanDeniz/refs/heads/main/images/repo_projects/paralax_effect/preview.gif">
+</p>
+
 A lightweight JavaScript function that applies a parallax effect to a given element based on mouse movement.
 
 ## Usage
@@ -40,18 +44,34 @@ The `PARALAX_EFFECT` function takes three arguments:
 
 ## Example
 ```html
-<HTML>
+<!DOCTYPE HTML>
+<HTML LANG="EN">
  <HEAD>
+  <META charset="UTF-8"/>
   <STYLE>
+HTML,
+BODY
+{
+	WIDTH: 100%;
+	HEIGHT: 100%;
+}
+
+BODY
+{
+	MARGIN: 0;
+	DISPLAY: FLEX;
+	JUSTIFY-CONTENT: CENTER;
+	BACKGROUND-COLOR: #222;
+}
+
 #test_element
 {
-    POSITION: ABSOLUTE;
-    WIDTH: 100PX;
-    HEIGHT: 100PX;
-    BACKGROUND-COLOR: RED;
-    TOP: 50%;
-    LEFT: 50%;
-    TRANSFORM: TRANSLATE(-50%, -50%);
+	WIDTH: 100PX;
+	MARGIN: AUTO;
+	HEIGHT: 100PX;
+	POSITION: RELATIVE;
+	TRANSFORM: TRANSLATE(-50%, -50%);
+	BACKGROUND-COLOR: RED;
 }
   </STYLE>
  </HEAD>
@@ -59,9 +79,9 @@ The `PARALAX_EFFECT` function takes three arguments:
   <DIV ID="test_element"></DIV>
   <SCRIPT TYPE="TEXT/JAVASCRIPT" SRC="PARALAX_EFFECT.js"></SCRIPT>
   <SCRIPT TYPE="TEXT/JAVASCRIPT">
-PARALAX_EFFECT(document.getElementById("test_element"), 0.08, 0.02);
-// or
 PARALAX_EFFECT(document.getElementById("test_element"));
+// or
+PARALAX_EFFECT(document.getElementById("test_element"), 0.08, 0.06);
   </SCRIPT>
  </BODY>
 </HTML>
