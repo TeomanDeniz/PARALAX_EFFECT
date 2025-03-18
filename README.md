@@ -19,14 +19,6 @@ Add the following script tag in your HTML file to include `PARALAX_EFFECT.js`:
 Call `PARALAX_EFFECT()` on any element you want to apply the effect to.
 
 ```javascript
-var WINDOW_CENTER_X = window.innerWidth / 2;
-var WINDOW_CENTER_Y = window.innerHeight / 2;
-
-window.addEventListener('resize', function () {
-    WINDOW_CENTER_X = window.innerWidth / 2;
-    WINDOW_CENTER_Y = window.innerHeight / 2;
-});
-
 PARALAX_EFFECT(document.getElementById("myElement"), 0.05, 0.01);
 ```
 
